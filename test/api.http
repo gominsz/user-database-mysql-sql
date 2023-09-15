@@ -1,0 +1,35 @@
+http://localhost:2222/user/
+
+
+###
+GET http://localhost:2222/user
+
+
+###
+GET http://localhost:2222/user/8afed0c9-534d-11ee-9666-0242ac130003
+
+###
+POST http://localhost:2222/user
+Content-Type: application/json
+
+ {
+    "role": "user",
+    "name": "Amanda dantas",
+    "email": "Amandadantas@gmail.com",
+    "profissao": "Alguma coisa",
+    "nacionalidade": "alemanha",
+    "password": "1231234"
+  },
+
+###
+PATCH http://localhost:2222/pessoas/847c44d7-f8ec-4e1a-ad12-255a7d608cad
+Content-Type: application/json
+
+{
+    "email": "batatinhaTeste@gmail.com",
+    "name": "batata",
+    "password": "312"
+}
+
+###
+DELETE http://localhost:2222/user/8afed7cf-534d-11ee-9666-0242ac130003
