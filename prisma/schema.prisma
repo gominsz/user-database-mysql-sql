@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model people {
+  id          String         @id @db.VarChar(90) @default(uuid()) @map("uuid")
+  role         pessoas_roule? @default(user) @map("roule")
+  name          String         @db.VarChar(30)  @map("nome")
+  email         String?        @db.VarChar(255)
+  profissao     String?        @db.VarChar(90)
+  nascimento    DateTime?      @db.Date
+  sexo          pessoas_sexo?
+  peso          Decimal?       @db.Decimal(5, 2)
+  altura        Decimal?       @db.Decimal(3, 2)
+  nacionalidade String?        @default("Brasil") @db.VarChar(20)
+  createdAt     DateTime?      @db.DateTime(0)
+  password      String         @db.VarChar(150)
+
+  @@map("pessoas")
+}
+
+enum pessoas_roule {
+  admin
+  user
+}
+
+enum pessoas_sexo {
+  M
+  F
+}
